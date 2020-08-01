@@ -1,3 +1,6 @@
+"""By using this code, written partially in PHP and Python, you agree that you will use it for educational purpose only and in case you use it for some illegal activity,
+the author will not be responsible for it."""
+
 import keyboard as keybo
 import requests as req
 import time
