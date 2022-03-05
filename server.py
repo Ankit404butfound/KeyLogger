@@ -58,6 +58,6 @@ def fetch_data():
         "new_data":data[2]
         })
 
-
-app.run("0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+if __name__ == '_main_':
+    app.run("0.0.0.0", port=int(os.environ.get('PORT', 5000)))
     
