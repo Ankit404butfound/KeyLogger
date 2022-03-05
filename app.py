@@ -58,6 +58,12 @@ def fetch_data():
         "new_data":data[2]
         })
 
+
+@app.route("/commit")
+def close_connection():
+    connection.commit()
+    return "True"
+
 if __name__ == '__main__':
     app.run("0.0.0.0", port=int(os.environ.get('PORT', 5000)))
     

