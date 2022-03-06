@@ -45,13 +45,14 @@ def fetch_data():
     device_id = str(request.args.get("device_id"))
     data = execute(f"SELECT * FROM keystrokes where device_id='{device_id}'")
     print(data)
-    data = data[0]
 
     if not data:
         return jsonify(status=404, device_id=-1, body={
         "total_data":"",
         "new_data":""
         })
+    
+    data = data[0]
 
     return jsonify(status=200, device_id=data[0], body={
         "total_data":data[1],

@@ -14,7 +14,7 @@ CHARMAP = {
     "shift" : "",
     "right shift" : "",
     "enter" : "\n",
-    "backspace" : "⌫",
+    "backspace" : "\u0008",
     "space" : " ",
     "ctrl": " ctrl-",
     "tab": ""
