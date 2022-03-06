@@ -16,8 +16,8 @@ while True:
         new_data = data["body"]["new_data"]
         
         if new_data != prev_data:
+            print("Data received:", total_data + "\033[94m"+ new_data + '\033[0m')
             total_data += new_data
-            print("Data received:", total_data)
             prev_data = new_data
         
         else:
